@@ -7,8 +7,17 @@
 		ul {list-style-type: none; text-align: center;} /*can also change bckgrd color or height & it will make a stripe across the top header of the site*/
 		ul li {display: inline; padding-left: 30px; padding-right: 20px; font-size: 20px;text-align: center;} /*distinguishes btwn ul li vs. ol li; if you want to distinguish btwn seperate ul li you'll have to name them ie. create different classes*/
 		p {font-size: 20px;padding-left: 60px; padding-right: 60px;} 
-		a {text-decoration: none;font-family: georgia; color: black; font-style: oblique;}
-		a.click {color: black} 
+		a:link {
+			text-decoration: none;
+			font-family: georgia; 
+			color: black; 
+			font-style: oblique;}
+		a:visited {
+			color: purple;
+		} 
+		a:hover {
+			color: blue;
+		}
 		.Liv {padding-bottom: 35px;}
 	</style>
 </head>
