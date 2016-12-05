@@ -35,28 +35,74 @@
             padding-top: 100px !important;
             padding-bottom: 100px !important;
         }  */
-        #aboutimg {
+       /* #aboutimg {
             width: 500px;
             height: 700px; 
             
-        } 
+        } */
+        h2 {
+            font-size: 36px;
+        }
+
+        div.about.col-lg-6 {
+            width: 50%; 
+            height: 100%;
+            padding-left: 0px !important;
+            padding-right: 0px;
+        }
 
         #features {
             padding-top: 75px;
             padding-bottom: 50px;
         }
-        /* list items in features*/
-        li {
-            font-size: 20px;
-            list-style-type: none;
+        
+        div.service-item h3 {
+            color: #53dfac;
         }
+
+        div.service-item p {
+            text-shadow: 2px 2px #d1e0e0;
+        }
+
+
         #map {
             margin-top: 0px;
         }
+
         #join{
             padding-top: 75px;
             padding-bottom: 50px;   
         }
+
+        #join-background {
+            /*background-color: gray;
+            opacity: 0.7; */
+            background: rgba(128, 128, 128, 0.5);
+        } 
+
+        #overlay {
+            display:none;
+            position: absolute;
+            width: 50%:
+            height: 120%;
+            background: #ffe6dd;
+            opacity: 0.8 
+            z-index: 99999;
+        }
+        /* #join-button {
+            background: rgba(128, 128, 128, 0.75)
+        } */
+
+        #join-popup {
+            display: none;
+            position: absolute;
+            width: 360px;
+            height: 300px;
+            background: #FFFFFF
+            border:2px solid #000;
+            z-index: 100000;
+        }
+
         #contact {
             padding-top: 50px;
             padding-bottom: 50px;   
@@ -66,11 +112,6 @@
           opacity: 0.5;
         } */
         /*how to make bigger? instead of pegging to smaller div make it for the whole div.download-section */
-        #join-background {
-            /*background-color: gray;
-            opacity: 0.7; */
-            background: rgba(128, 128, 128, 0.5)
-        } 
        
 
     </style>
@@ -126,8 +167,8 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Gl<i class="fa fa-compass"></i>betrot</h1>
-                        <p class="intro-text"><b>Get lost...on your terms </b>
-                           <!-- <br>Jump into your next adventure --> </p>
+                        <h3 class="intro-text"><b>Don't Trip. Just Travel. </b>
+                           <!-- <br>Jump into your next adventure --> </h3>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -139,10 +180,10 @@
 
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
+        <div class="about col-lg-6" height="100%" width="50%">
+            <img id="aboutimg" src="img/andes.jpg" width="100%" height="auto">
+        </div>
         <div class="row">
-            <div class="col-lg-6 ">
-                <img id="aboutimg" src="img/andes.jpg">
-            </div>
             <div class="col-lg-5 col-lg-offset-1">
                 <h2>About Globetrot</h2>
                 <p>GlobeTrot is a travel companion that helps you find your way, wherever you are. It doesn’t matter if you are on a whirlwind business trip, a solo journey around the world, or a vacation with loved ones. From big-picture concerns down to the details of convenience, Globetrot has you covered. </p>
@@ -164,57 +205,67 @@
                     <div class="row">
                      <div class="col-md-3 col-sm-6">
                             <div class="service-item">
-                                <span class="fa-stack fa-4x">
+                                <span class="fa-stack fa-5x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-life-buoy fa-stack-1x text-primary" aria-hidden="true"></i>
                             </span>
-                                <h4>
+                                <h3>
                                     <strong>Safety</strong>
-                                </h4>
-                                <p><b>
-                                <ul>
-                                <li>Stay up to date on travel advisories. </li> 
-                                <li> Find your embassy.</li> 
-                                <li>See emergency 
-                                numbers and locate the nearest emergency services.</li>
-                                </ul>
-                                </b></p>
+                                </h3>
+                                <b>
+                               <p>Stay up to date on travel advisories.</p> 
+                                <p> Find your embassy.</p> 
+                                <p>See emergency 
+                                numbers and locate the nearest emergency services.</p>
+                                
+                                </b>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
-                                <span class="fa-stack fa-4x">
+                                <span class="fa-stack fa-5x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-bus fa-stack-1x text-primary" aria-hidden="true"></i>
                             </span>
-                                <h4>
+                                <h3>
                                     <strong>Transit</strong>
-                                </h4>
-                                <p><b>Understand the public transportation system and locate the nearest stop. Find private transportation options. Choose the safest, most efficient, or most convenient mode of transportation for your area.</b></p>
+                                </h3>
+                                <b>
+                                <p>Understand the public transportation system and locate the nearest stop. </p><p>Find private transportation options.</p> 
+                                <p>Choose the safest, most efficient, or most convenient mode of transportation for your area.</p>
+                                </b>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
-                                <span class="fa-stack fa-4x">
+                                <span class="fa-stack fa-5x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-puzzle-piece fa-stack-1x text-primary" aria-hidden="true"></i>
                             </span>
-                                <h4>
+                                <h3>
                                     <strong>Context</strong>
-                                </h4>
-                                <p><b>Know local laws before you accidentally break them. Learn about local customs and etiquette. Browse area advice from locals and fellow travelers.</b></p>
+                                </h3>
+                                <b>
+                                <p>Know local laws before you accidentally break them.</p>
+                                <p>Learn about local customs and etiquette.</p> 
+                                <p>Browse area advice from locals and fellow travelers.</p>
+                                </b>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
-                                <span class="fa-stack fa-4x">
+                                <span class="fa-stack fa-5x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-money fa-stack-1x text-primary" aria-hidden="true"></i>
                             </span>
-                                <h4>
+                                <h3>
                                     <strong>Money</strong>
-                                </h4>
-                                <p><b>See estimates of living and travel costs in your area. Know tipping customs. Get an up-to-date currency conversion.</b></p>
+                                </h3>
+                                <b>
+                                <p>See estimates of living and travel costs in your area.</p> 
+                                <p>Know tipping customs.</p>
+                                <p>Get an up-to-date currency conversion.</p>
+                                </b>
                             </div>
                         </div>
                     </div>
@@ -243,7 +294,7 @@
                 </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
-                        <a href="#" class="btn btn-default btn-lg"> <span class="network-name"> Website</span></a>
+                        <a href="#portfolio" class="btn btn-default btn-lg"> <span class="network-name"> Website</span></a>
                     </li>
                     <li>
                         <a href="https://www.instagram.com/cam_wanders/" class="btn btn-default btn-lg"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
@@ -261,18 +312,27 @@
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2" id="join-background">
-                    <div class="join-text" id="join-text">
+                    <div class="join-text">
                     <h2>Join the Community</h2>
-                    <p>Like what you see? Sign up to get an update when we are ready to launch! 
+                    <p>Like what you see? Sign up to get updates as we work towards launch! 
                     <br>
                     You will never get spam from us, we promise. </p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Start Trotting!</a> 
+                        <button type="button" id="join-button" class="btn btn-default btn-lg"> Start Trotting! </button>
+                        <div id="overlay"></div>
+                        <div id="join-popup">
+                            <form id="signup">
+                                <input type="text" name="firstname" placeholder="First Name"> <br>
+                                <input type="text" name="Email" placeholder="Email"> <br>
+                                <input type="submit" name="submit"> 
+                            </form>
+                        </div><
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    
   <!-- Contact Section -->
     <section id="contact" class="container content-section text-center">
         <div class="row">
@@ -316,9 +376,22 @@
     <!-- Stop too many refreshes -->
      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script> 
 
+        <!-- Join / Signup Popup JavaScript -->
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementByID("join-button").onclick = function() {
+                var overlay = document.getElementByID("overlay");
+                var popup = document.getElementByID("join-popup");
+
+                overlay.style.display = "block";
+                popup.style.display = "block";
+            };
+        };
+    </script>
 
     <!-- Theme JavaScript -->
     <script src="js/grayscale.min.js"></script>
+
 
 </body>
 
