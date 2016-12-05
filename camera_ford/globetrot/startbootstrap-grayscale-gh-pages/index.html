@@ -53,7 +53,7 @@
 
         #features {
             padding-top: 75px;
-            padding-bottom: 50px;
+            padding-bottom: 0px;
         }
         
         div.service-item h3 {
@@ -67,6 +67,8 @@
 
         #map {
             margin-top: 0px;
+            background-color: grey;
+
         }
 
         #join{
@@ -81,26 +83,41 @@
         } 
 
         #overlay {
-            display:none;
-            position: absolute;
-            width: 50%:
-            height: 120%;
-            background: #ffe6dd;
-            opacity: 0.8 
-            z-index: 99999;
-        }
-        /* #join-button {
-            background: rgba(128, 128, 128, 0.75)
-        } */
+            display: none;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 1001;
+            -moz-opacity: 0.8;
+            opacity: .80;
+            filter: alpha(opacity=80);
+            }
 
-        #join-popup {
+        #popup {
             display: none;
             position: absolute;
-            width: 360px;
-            height: 300px;
-            background: #FFFFFF
-            border:2px solid #000;
-            z-index: 100000;
+            top: 25%;
+            left: 25%;
+            width: 50%;
+            height: 80%;
+            padding: 16px;
+            border: 8px solid orange;
+           /* border-color: green; */
+            background-color: #ffe6dd;
+            z-index: 1002;
+            overflow: auto;
+        }
+
+        #signup {
+            position: absolute;
+            top: 15%;
+            bottom: 25%;
+            right: 25%;
+            left: 25%;
+            align-content: center;
         }
 
         #contact {
@@ -181,7 +198,7 @@
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
         <div class="about col-lg-6" height="100%" width="50%">
-            <img id="aboutimg" src="img/andes.jpg" width="100%" height="auto">
+            <img id="aboutimg" src="img/skopje.jpg" width="100%" height="auto" style="border-radius: 5%; border: none;">
         </div>
         <div class="row">
             <div class="col-lg-5 col-lg-offset-1">
@@ -276,17 +293,74 @@
             <!-- /.row -->
         </div>
         <!-- /.container -->
+
+    <!-- Map Section (within features)-->
+    <div id="map"></div>
+    <script>
+        function myMap() {
+          var mapCanvas = document.getElementById("map");
+          var nyc = new google.maps.LatLng(40.807, -73.945)
+          var mapOptions = {
+            center: nyc , 
+            zoom: 15
+            }
+
+          var map = new google.maps.Map(mapCanvas, mapOptions);
+          addMarker(nyc)
+
+          function addMarker(location) {
+          var marker = google.maps.Marker({
+            position: location,
+            map: map
+            })
+        }
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-_S3q-G69bB1k6VmIXdHj5qFz3uoeE7g&callback=myMap"></script>
+
     </section>
 
 
-    <!-- Map Section -->
-    <div id="map"></div>
 
 
     <!-- Team Section -->
     <section id="team" class="container content-section text-center">
+        <div class="team col-lg-6" height="100%" width="50%">
+            <img id="teamimg" src="img/andes.jpg" width="100%" height="auto" style="border-radius: 60%; border: solid #ffe6dd 2px">
+        </div>
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-5 col-lg-offset-1">
+                <h2>Meet the Team</h2>
+                <p>Camera is a recent graduate of Brown University who loves writing, traveling, and looking at rocks (geology major over here). In her free time, catch her watching How to Get Away With Murder and learning to code.</p>
+
+                <p> After coming home from her first solo trip, Camera realized that there should be a way to make navigating places away from home as easy as it felt to navigate her native New York City. After much brainstorming, surveying, and revisiting of past travel troubles, Globetrot was born. 
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="#portfolio" class="btn btn-default btn-lg"> <span class="network-name"> Website</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/cam_wanders/" class="btn btn-default btn-lg"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
+                    </li>                    
+                    <li>
+                        <a href="https://github.com" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="team" class="container content-section text-center">
+        <div class="team col-lg-6" height="100%" width="50%">
+            <img id="teamimg" src="img/andes.jpg" height="40%" width="40%" style="border-radius: 60%; border: solid #ffe6dd 2px">
+        </div> 
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-6">
                 <h2>Meet the Team</h2>
                 <p>Camera is a recent graduate of Brown University who loves writing, traveling, and looking at rocks (geology major over here). In her free time, catch her watching How to Get Away With Murder and learning to code.</p>
 
@@ -308,6 +382,7 @@
     </section>
 
  <!-- Sign Up Section aka download-->
+ <!-- popup: height = 100% of div.download-section, width = 100% of join-text -->
     <section id="join" class="content-section text-center">
         <div class="download-section">
             <div class="container">
@@ -316,16 +391,22 @@
                     <h2>Join the Community</h2>
                     <p>Like what you see? Sign up to get updates as we work towards launch! 
                     <br>
-                    You will never get spam from us, we promise. </p>
-                        <button type="button" id="join-button" class="btn btn-default btn-lg"> Start Trotting! </button>
-                        <div id="overlay"></div>
-                        <div id="join-popup">
+                    We promise you'll never get spam from us. </p>
+                        <a id="join-button" class="btn btn-default btn-lg" href="javascript:void(0)" onclick="document.getElementById('popup').style.display='block';document.getElementById('overlay').style.display='block'"> Start Trotting! </a>
+
+                        <div id="popup" class="white_content">
                             <form id="signup">
+                               <h4 style="margin-bottom: 10px; font-size: 20px; color: #42DCA3 !important;" > Sign Up Here! </h4>
                                 <input type="text" name="firstname" placeholder="First Name"> <br>
                                 <input type="text" name="Email" placeholder="Email"> <br>
-                                <input type="submit" name="submit"> 
-                            </form>
-                        </div><
+                                <input type="submit" name="submit" style="color: black;"> 
+                                <br>
+                        <a href="javascript:void(0)" onclick="document.getElementById('popup').style.display='none';document.getElementById('overlay').style.display='none'" style="padding-top:15px;"><b>Close</b></a>
+                        </form>
+                        </div>
+                        <div id="overlay" class="black_overlay"></div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -339,7 +420,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact Us</h2>
                 <p>Questions? Comments? Just want to say hi?</p>
-                <p>Email us at <b><a href="mailto:xxx@yyy.com">xxx@yyy.com</a></b>
+                <p>Email us at <b><a href="mailto:camera.ford16@gmail.com">camera.ford16@gmail.com</a></b>
                 </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
@@ -359,7 +440,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Globetrot 2016</p>
+            <p style="font-size: 16px">Copyright &copy; Globetrot 2016</p>
         </div>
     </footer>
 
@@ -373,13 +454,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <!-- My key: AIzaSyD-_S3q-G69bB1k6VmIXdHj5qFz3uoeE7g -->
     <!-- Stop too many refreshes -->
-     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script> 
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-_S3q-G69bB1k6VmIXdHj5qFz3uoeE7g&sensor=false"></script> -->
 
         <!-- Join / Signup Popup JavaScript -->
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementByID("join-button").onclick = function() {
+    <!-- <script type="text/javascript">
+        window.onload = Popup() {
+            document.getElementByID("join-button").onclick = Popup() {
                 var overlay = document.getElementByID("overlay");
                 var popup = document.getElementByID("join-popup");
 
@@ -387,7 +469,7 @@
                 popup.style.display = "block";
             };
         };
-    </script>
+    </script> -->
 
     <!-- Theme JavaScript -->
     <script src="js/grayscale.min.js"></script>
