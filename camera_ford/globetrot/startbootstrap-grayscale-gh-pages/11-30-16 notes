@@ -39,12 +39,13 @@ DONE 8. logo in canva
 
 12/5:
 About
-1. change join button on hover color
-2. make sure page layout is responsive
+DONE 1. change join button on hover color
+DONE 2. make sure page layout is responsive
 3. change photo?
 
 Features
-4. change text color?
+4. change text color (darken shadow and/or text color)
+DONE 4.5 change text size
 5. change map marker
 6. put API transit stops map ?
 7. change map background to white
@@ -52,7 +53,7 @@ Features
 
 Team
 8. correct image sizing
-9. make sure page layout is responsive
+DONE 9. make sure page layout is responsive
 
 
 Join
@@ -60,7 +61,7 @@ Join
 
 
 Contact:
-11. add transparent background to contact section -- full div
+11. add transparent background to contact section -- new div, no col + width = 100%(for full page width)
 
 
 Footer:
